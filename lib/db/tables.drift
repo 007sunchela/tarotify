@@ -1,0 +1,50 @@
+CREATE TABLE tarots (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  idType INTEGER NOT NULL,
+  idSuit INTEGER,
+  name TEXT NOT NULL,
+  value INTEGER NOT NULL,
+  url TEXT NOT NULL,
+  meanOne TEXT NOT NULL,
+  meanTwo TEXT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY (idType) REFERENCES types(id),
+  FOREIGN KEY (idSuit) REFERENCES suits(id)
+);
+
+CREATE TABLE types (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE suits (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE love_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  idTarot INTEGER NOT NULL,
+  meanOne TEXT NOT NULL,
+  meanTwo TEXT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY (idTarot) REFERENCES tarots(id)
+);
+
+CREATE TABLE career_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  idTarot INTEGER NOT NULL,
+  meanOne TEXT NOT NULL,
+  meanTwo TEXT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY (idTarot) REFERENCES tarots(id)
+);
+
+CREATE TABLE finance_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  idTarot INTEGER NOT NULL,
+  meanOne TEXT NOT NULL,
+  meanTwo TEXT NOT NULL,
+  description TEXT NOT NULL,
+  FOREIGN KEY (idTarot) REFERENCES tarots(id)
+);
